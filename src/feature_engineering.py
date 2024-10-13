@@ -10,12 +10,6 @@ def load_data(filepath):
     df = pd.read_csv(filepath)
     return df
 
-def handle_missing_values(df):
-    """
-    Handle missing values appropriately.
-    """
-     df = df.dropna()
-    return df
 
 def create_age_groups(df):
     bins = [17, 30, 45, 60, 100]  # Age ranges
@@ -24,15 +18,7 @@ def create_age_groups(df):
    
     return df
 
-def encode_categorical_features(df):
-    """
-    Encode categorical features using Label Encoding.
-    """
-    le = LabelEncoder()
-    categorical_cols = ['country', 'gender', 'credit_card']
-    for col in categorical_cols:
-        df[col] = le.fit_transform(df[col])
-    return df
+
 
 def save_processed_data(df, filepath):
     """
