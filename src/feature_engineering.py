@@ -14,14 +14,14 @@ def handle_missing_values(df):
     """
     Handle missing values appropriately.
     """
-
+     df = df.dropna()
     return df
 
 def create_age_groups(df):
     bins = [17, 30, 45, 60, 100]  # Age ranges
     labels = ['young', 'adult', 'middle-aged', 'senior']  # Labels for age groups
     df['age_group'] = pd.cut(df['age'], bins=bins, labels=labels)
-    df = df.dropna()
+   
     return df
 
 def encode_categorical_features(df):
