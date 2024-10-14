@@ -26,7 +26,7 @@ jobs:
       with:
         test-name: Test eda
         setup-command: pip install -r requirements.txt
-        command: pytest tests/test_eda.py
+        command: tests/test_eda.py
         timeout: 10
         max-score: 10
     - name: test feature Engneering
@@ -35,7 +35,7 @@ jobs:
       with:
         test-name: test feature Engneering
         setup-command: pip install -r requirements.txt
-        command: pytest tests/test_feature_engineering.py
+        command: pytest tests/test_feature_engineering.py::test_handle_missing_values
         timeout: 10
         max-score: 10
     - name: test model
@@ -47,6 +47,15 @@ jobs:
         command: pytest tests/test_model_training.py
         timeout: 10
         max-score: 20
+    - name: all run
+      id: all-run
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: all run
+        setup-command: pip install -r requirements.txt
+        command: pytest
+        timeout: 10
+        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
@@ -54,5 +63,6 @@ jobs:
         TEST-EDA_RESULTS: "${{steps.test-eda.outputs.result}}"
         TEST-FEATURE-ENGNEERING_RESULTS: "${{steps.test-feature-engneering.outputs.result}}"
         TEST-MODEL_RESULTS: "${{steps.test-model.outputs.result}}"
+        ALL-RUN_RESULTS: "${{steps.all-run.outputs.result}}"
       with:
-        runners: run-tests,test-eda,test-feature-engneering,test-model
+        runners: run-tests,test-eda,test-feature-engneering,test-model,all-run
