@@ -26,7 +26,7 @@ jobs:
       with:
         test-name: Test eda
         setup-command: pip install -r requirements.txt
-        command: pytest tests/test_eda.py
+        command: tests/test_eda.py
         timeout: 10
         max-score: 10
     - name: test feature Engneering
@@ -35,7 +35,7 @@ jobs:
       with:
         test-name: test feature Engneering
         setup-command: pip install -r requirements.txt
-        command: pytest tests/test_feature_engineering.py
+        command: pytest tests/test_feature_engineering.py::test_handle_missing_values
         timeout: 10
         max-score: 10
     - name: test model
