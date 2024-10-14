@@ -16,8 +16,7 @@ def check_missing_values(df):
     """
     Check for missing values in the DataFrame.
     """
-    missing = df.isnull().sum()
-    print("Missing Values:\n", missing)
+    print("hel")
 
 def generate_summary_statistics(df):
     """
@@ -30,26 +29,27 @@ def visualize_distributions(df):
     """
     Visualize distributions of age, balance, credit_score, and estimated_salary.
     """
-    plt.figure(figsize=(12, 10))
+    print("hel")
+    # plt.figure(figsize=(12, 10))
     
-    plt.subplot(2, 2, 1)
-    sns.histplot(df['age'], kde=True)
-    plt.title('Age Distribution')
+    # plt.subplot(2, 2, 1)
+    # sns.histplot(df['age'], kde=True)
+    # plt.title('Age Distribution')
     
-    plt.subplot(2, 2, 2)
-    sns.histplot(df['balance'], kde=True)
-    plt.title('Balance Distribution')
+    # plt.subplot(2, 2, 2)
+    # sns.histplot(df['balance'], kde=True)
+    # plt.title('Balance Distribution')
     
-    plt.subplot(2, 2, 3)
-    sns.histplot(df['credit_score'], kde=True)
-    plt.title('Credit Score Distribution')
+    # plt.subplot(2, 2, 3)
+    # sns.histplot(df['credit_score'], kde=True)
+    # plt.title('Credit Score Distribution')
     
-    plt.subplot(2, 2, 4)
-    sns.histplot(df['estimated_salary'], kde=True)
-    plt.title('Estimated Salary Distribution')
+    # plt.subplot(2, 2, 4)
+    # sns.histplot(df['estimated_salary'], kde=True)
+    # plt.title('Estimated Salary Distribution')
     
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
 
 def main():
     # Load data
